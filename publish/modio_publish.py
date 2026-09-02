@@ -22,7 +22,7 @@ DESCRIPTION = """<p><b>MINECART TURBO</b> adds three faster minecarts to the Rai
 <p>Acceleration and braking are unchanged, so a faster cart takes longer to reach top speed and longer to stop - brake early on the 4x.</p>
 <p><b>Multiplayer:</b> must be installed on the server (host) and on every client - minecart movement is predicted client-side, so both sides need the same cart data. Dedicated servers: add <code>minecartturbo</code> to the mods list. No CoreLib needed, no other dependencies. Works on Core Keeper 1.2.1.5.</p>
 <p><b>How it works:</b> at boot the mod clones the game's own Minecart definition three times, scales <code>maxSpeed</code> and the recipe, registers the clones through the official mod API and appends them to the Railway Forge's recipe list. The carts look like the normal Minecart; the item name colour (Rare / Epic / Legendary) marks the tier.</p>
-<p>Source: <a href="https://github.com/mattferry/agentic">mattferry/agentic</a> (corekeeper/minecartturbo). Written by Claude for the Ferry family server.</p>"""
+<p>Source: <a href="https://github.com/mattferry/corekeeper-minecart-turbo">mattferry/corekeeper-minecart-turbo</a> (MIT, full README with modder notes). Written by Claude for the Ferry family server.</p>"""
 
 def req(method, path, fields=None, files=None, json_body=None):
     url = API + path
@@ -64,7 +64,7 @@ if mod:
 else:
     s, mod = req("POST", "/games/%d/mods" % GAME,
                  fields={"name": "Minecart Turbo", "name_id": NAME_ID, "summary": SUMMARY, "description": DESCRIPTION,
-                         "visible": "1", "homepage_url": "https://github.com/mattferry/agentic"},
+                         "visible": "1", "homepage_url": "https://github.com/mattferry/corekeeper-minecart-turbo"},
                  files={"logo": ("minecartturbo-logo.png", open(LOGO, "rb").read())})
     print("create mod:", s, mod.get("id") or mod)
     if s not in (200, 201): sys.exit("mod creation failed")
