@@ -1,0 +1,29 @@
+{
+    "guid": "a5f1f5cc54794e5fab62df70d892f459",
+    "name": "MinecartTurbo",
+    "displayName": "Minecart Turbo",
+    "skipSafetyChecks": false,
+    "disableScripts": false,
+    "accessesExtraAssemblies": true,
+    "disableHarmonyPatching": false,
+    "requiredOn": 3,
+    "files": [
+        {
+            "path": "Scripts/MinecartTurboMod.cs",
+            "guid": "4e00b2d63da04dbaa4a02e4134e82bac"
+        },
+        {
+            "path": "Scripts/MinecartTurboPatches.cs",
+            "guid": "93039b688cd246379386f4dbd5da5734"
+        },
+        {
+            "path": "Scripts/MinecartTurboRegistry.cs",
+            "guid": "4a5e85d716064ac98ff73c2f5d934122"
+        },
+        {
+            "path": "Localization/Localization.csv",
+            "guid": "a4b607a7d5c2465884c9afd0de8e579b"
+        }
+    ],
+    "dependencies": []
+}

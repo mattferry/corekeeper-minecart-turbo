@@ -1,0 +1,7 @@
+Key	Type	Desc	English
+Items/MinecartTurbo_Mk1	Text		Turbo Minecart (2x)
+Items/MinecartTurbo_Mk1Desc	Text		Rides the rails at 2x the top speed of a normal Minecart. Costs 2x the materials.
+Items/MinecartTurbo_Mk2	Text		Turbo Minecart (3x)
+Items/MinecartTurbo_Mk2Desc	Text		Rides the rails at 3x the top speed of a normal Minecart. Costs 3x the materials.
+Items/MinecartTurbo_Mk3	Text		Turbo Minecart (4x)
+Items/MinecartTurbo_Mk3Desc	Text		Rides the rails at 4x the top speed of a normal Minecart. Costs 4x the materials. Brake early.
