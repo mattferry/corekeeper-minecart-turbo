@@ -7,10 +7,10 @@ API = os.environ.get("MODIO_API_URL", "https://api.mod.io/v1").rstrip("/")
 GAME = 5289
 NAME_ID = "minecartturbo"
 HERE = os.path.dirname(os.path.abspath(__file__))
-ZIP = os.path.join(HERE, "MinecartTurbo-1.1.0.zip")
+ZIP = os.path.join(HERE, "MinecartTurbo-1.2.0.zip")
 LOGO = os.path.join(HERE, "minecartturbo-logo.png")
-VERSION = "1.1.0"
-CHANGELOG = ("1.1.0 - tiers rebalanced to 2x / 3x / 4x (was 1.5x / 2x / 2.5x) and item names/descriptions now display "
+VERSION = "1.2.0"
+CHANGELOG = ("1.2.0 - ported to Core Keeper 1.3.0: objects are now registered as runtime EntityAuthoringDataBlocks (the 1.1.0 build fails to compile on 1.3.0). Cart ObjectIDs are pinned at the IDs they always had (32768-32770), so existing carts keep working. Previous: 1.1.0 - tiers rebalanced to 2x / 3x / 4x (was 1.5x / 2x / 2.5x) and item names/descriptions now display "
              "(I2 localization looks terms up with ':' rewritten to '_', so the CSV keys use the underscore form).")
 
 SUMMARY = "Three craftable Turbo Minecarts at the Railway Forge: 2x, 3x and 4x top speed, costing 2x, 3x and 4x the materials."
@@ -20,7 +20,7 @@ DESCRIPTION = """<p><b>MINECART TURBO</b> adds three faster minecarts to the Rai
 <tr><td>Turbo Minecart (3x)</td><td>3x</td><td>30 Iron Bar, 18 Tin Bar</td></tr>
 <tr><td>Turbo Minecart (4x)</td><td>4x</td><td>40 Iron Bar, 24 Tin Bar</td></tr></table>
 <p>Acceleration and braking are unchanged, so a faster cart takes longer to reach top speed and longer to stop - brake early on the 4x.</p>
-<p><b>Multiplayer:</b> must be installed on the server (host) and on every client - minecart movement is predicted client-side, so both sides need the same cart data. Dedicated servers: add <code>minecartturbo</code> to the mods list. No CoreLib needed, no other dependencies. Works on Core Keeper 1.2.1.5.</p>
+<p><b>Multiplayer:</b> must be installed on the server (host) and on every client - minecart movement is predicted client-side, so both sides need the same cart data. Dedicated servers: add <code>minecartturbo</code> to the mods list. No CoreLib needed, no other dependencies. Works on Core Keeper 1.3.0 (1.3.0.6 tested); 1.1.0 was the last build for 1.2.1.5.</p>
 <p><b>How it works:</b> at boot the mod clones the game's own Minecart definition three times, scales <code>maxSpeed</code> and the recipe, registers the clones through the official mod API and appends them to the Railway Forge's recipe list. The carts look like the normal Minecart; the item name colour (Rare / Epic / Legendary) marks the tier.</p>
 <p>Source: <a href="https://github.com/mattferry/corekeeper-minecart-turbo">mattferry/corekeeper-minecart-turbo</a> (MIT, full README with modder notes). Written by Claude for the Ferry family server.</p>"""
 
@@ -81,7 +81,7 @@ print("upload file:", s, (mf.get("id"), mf.get("version"), mf.get("virus_status"
 # 3. tags (game version + type). Tag names must exist in the game's tag options.
 s, opts = req("GET", "/games/%d/tags" % GAME)
 available = {t for g in opts.get("data", []) for t in g.get("tags", [])}
-want = [t for t in ["1.2.1.5", "Quality of Life", "Item", "Client", "Server", "Script"] if t in available]
+want = [t for t in ["1.3.0", "Quality of Life", "Item", "Client", "Server", "Script"] if t in available]
 s, t = req("POST", "/games/%d/mods/%d/tags" % (GAME, MID), fields={"tags[]": want})
 print("tags:", s, want, t if s not in (200, 201) else "ok")
 
